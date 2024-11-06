@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { renderEmail } from "./formater/htmlGenerator";
+import OpportunityTransferTemplate from "./template/transfer";
+
+// Dummy Data
+const dummyData = {
+  count: 5,
+  employee: "John Doe",
+  timestamp: "2024-11-06",
+  opportunity_details: [
+    { id: "123", name: "Opportunity 1" },
+    { id: "124", name: "Opportunity 2" },
+    { id: "125", name: "Opportunity 3" },
+    { id: "126", name: "Opportunity 4" },
+    { id: "127", name: "Opportunity 5" },
+  ],
+};
 
 function App() {
+  renderEmail();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <OpportunityTransferTemplate {...dummyData} />
     </div>
   );
 }
